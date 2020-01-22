@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<map>
+  <name>SsoUi</name>
+  <version>3.0.0</version>
+  <team>
+    <programmerAPP>Романов А.С.</programmerAPP>
+    <analyst>Талышев В.</analyst>
+  </team>
+  <path>JEP/Module/SsoUi</path>
+  <initialPath>JEP/Module/SsoUi@734</initialPath>
+</map>

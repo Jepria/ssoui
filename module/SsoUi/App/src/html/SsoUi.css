@@ -1,0 +1,22 @@
+/* Стиль для заголовка страницы аутентификации. */
+.ssoui-loginModuleTitle {
+  border-bottom: 1px solid navy;
+  color: navy;
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial;
+  font-size: 12px;
+}
+
+/* Стиль для сообщения об ошибке. */
+.ssoui-errorMessage {
+  width: 100%;
+  color: red;
+  font-size: 12px;
+}
+
+/* Стиль для HTML-формы логина. */
+.ssoui-loginForm {
+  width: 100%;
+  padding-top: 110px;
+}

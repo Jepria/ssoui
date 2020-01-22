@@ -1,0 +1,14 @@
+org.jepria.sso.ssoui.login.client
+org.jepria.sso.ssoui.login.client.ui.form.plain
+org.jepria.sso.ssoui.login.server
+org.jepria.sso.ssoui.login.shared
+org.jepria.sso.ssoui.login.shared.field
+org.jepria.sso.ssoui.login.shared.record
+org.jepria.sso.ssoui.login.shared.service
+org.jepria.sso.ssoui.login.shared.text
+org.jepria.sso.ssoui.main.client
+org.jepria.sso.ssoui.main.client.entrance
+org.jepria.sso.ssoui.main.client.ui.main
+org.jepria.sso.ssoui.main.server
+org.jepria.sso.ssoui.main.shared
+org.jepria.sso.ssoui.main.shared.text

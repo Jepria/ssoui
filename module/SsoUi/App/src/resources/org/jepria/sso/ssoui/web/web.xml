@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<web-app>
+  
+  <context-param>
+    <param-name>app.name</param-name>
+    <param-value>SsoUi</param-value>
+  </context-param>
+  
+  <servlet>
+    <servlet-name>remoteLoggerServiceImpl</servlet-name>
+    <servlet-class>com.allen_sauer.gwt.log.server.RemoteLoggerServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>remoteLoggerServiceImpl</servlet-name>
+    <url-pattern>/SsoUi/gwt-log</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MainServiceServlet</servlet-name>
+    <servlet-class>com.technology.jep.jepria.server.service.JepMainServiceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MainServiceServlet</servlet-name>
+    <url-pattern>/SsoUi/MainService</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+    <servlet-name>LoginServiceServlet</servlet-name>
+    <servlet-class>org.jepria.sso.ssoui.login.server.LoginServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServiceServlet</servlet-name>
+    <url-pattern>/SsoUi/LoginService</url-pattern>
+  </servlet-mapping> 
+  
+  <welcome-file-list>
+    <welcome-file>SsoUi.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+    <session-timeout>720</session-timeout>
+  </session-config>
+  
+  <!-- To access the module enough to have any role -->
+  <security-role>
+    <!-- For Tomcat environment it's possible to use a role wildcard --> 
+    <role-name>*</role-name> 
+    <!-- But as for OAS that's prohibited, why? Maybe feature of new API. It's a pitty.
+    <role-name>ShowChangePassword</role-name>-->
+  </security-role>
+  
+   <!-- Allow request for public resources without authorization -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Public resources</web-resource-name>
+      <url-pattern>/SsoUi.jsp</url-pattern>
+      <url-pattern>/SsoUi/*</url-pattern>
+      <url-pattern>/js/*</url-pattern>
+      <url-pattern>/css/*</url-pattern>
+      <url-pattern>/images/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+  
+  <!-- Protect all resources of Application -->
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Protected resources</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <!-- At least user has to possess one of the specified roles -->
+      <role-name>*</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <form-login-config>
+      <form-login-page>/WEB-INF/security/SsoUiLogin.jsp</form-login-page>
+      <form-error-page>/WEB-INF/security/SsoUiLoginError.jsp</form-error-page>
+    </form-login-config>
+  </login-config>
+  
+</web-app>

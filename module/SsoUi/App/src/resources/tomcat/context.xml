@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+  <Valve className="org.apache.catalina.authenticator.FormAuthenticator" landingPage="/Protected.jsp"/>
+
+  <Realm className="org.jepria.catalina.realm.JepJAASRealm" 
+    appName="RFInfoDS"
+    userClassNames="org.jepria.ssoutils.JepPrincipal"
+    roleClassNames="org.jepria.ssoutils.JepPrincipal" />
+</Context>
