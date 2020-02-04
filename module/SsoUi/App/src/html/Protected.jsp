@@ -11,10 +11,14 @@
   // формируем URL с параметрами
   StringBuilder fwdUrlSb = new StringBuilder();
 
-  if (!enterModule.startsWith("/")) {
+  // the enterModule must start with a single slash. More slashes may lead to the "open redirect" vulnerability
+  while (enterModule.charAt(0) == '/') {
+    enterModule = enterModule.substring(1);
+  }
+  if (enterModule.charAt(0) != '/') {
     enterModule = "/" + enterModule;
   }
-  
+
   fwdUrlSb.append(enterModule);
   
   if (queryStringEncoded != null) {
