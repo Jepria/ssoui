@@ -8,6 +8,7 @@
 <%@ page import="java.util.ResourceBundle" %>
 <%@page import="org.jepria.ssoutils.SsoUiConstants"%>
 <%@page import="org.jepria.ssoutils.SsoUiUtils"%>
+<%@page import="org.jepria.sso.ssoui.login.server.CsrfTokenUtil"%>
 
 <%@ page import="org.jepria.sso.ssoui.login.shared.LoginConstant" %>
 
@@ -167,6 +168,8 @@ if (appTitle == null) {
         </tr>
   
       </table>
+
+      <input id="x_csrf_token_field" type="hidden" name="x-csrf-token" value="<%= CsrfTokenUtil.generate(session) %>">
     </form>
     
     <!-- According to HTML5 Specification we can place link and style tags in any place inside <BODY> -->

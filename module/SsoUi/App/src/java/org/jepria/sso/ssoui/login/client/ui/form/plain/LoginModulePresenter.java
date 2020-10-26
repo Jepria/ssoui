@@ -75,7 +75,11 @@ public class LoginModulePresenter
         public void onSuccess(String result) {
           
           // перед сабмитом пронесём все get-параметры с клиента на сервер (к этому времени сессия могла истечь, а параметры -- не сохраниться)
+
+          String csrfToken = view.getCsrfToken();
+
           service.bindParamsToSession(
+                  csrfToken,
               convertParams(Window.Location.getParameterMap()),
               new JepAsyncCallback<Void>() {
                 @Override

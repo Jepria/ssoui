@@ -6,5 +6,5 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.technology.jep.jepria.shared.service.data.JepDataServiceAsync;
 
 public interface LoginServiceAsync extends JepDataServiceAsync {
-  void bindParamsToSession(Map<String, String> params, AsyncCallback<Void> callback); 
+  void bindParamsToSession(String csrfToken, Map<String, String> params, AsyncCallback<Void> callback);
 }

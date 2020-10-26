@@ -20,9 +20,12 @@ public class LoginServiceImpl extends JepServiceServlet implements LoginService 
   private static final long serialVersionUID = 2434671796678760044L;
 
   @Override
-  public void bindParamsToSession(Map<String, String> params) {
+  public void bindParamsToSession(String csrfTokenClient, Map<String, String> params) {
     // создадим новую сессию, если старая истекла
     HttpSession session = getThreadLocalRequest().getSession(true/*обязательно true!*/);
+
+    // сохраним в сессию csrf-токен для последующей проверки при первом запросе (любом) после логина
+    CsrfTokenUtil.saveTokenClient(csrfTokenClient, session);
 
     // привяжем к сессии клиентские параметры
     if (params != null) {

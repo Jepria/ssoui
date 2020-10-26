@@ -30,8 +30,17 @@
   <servlet-mapping>
     <servlet-name>LoginServiceServlet</servlet-name>
     <url-pattern>/SsoUi/LoginService</url-pattern>
-  </servlet-mapping> 
-  
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>CsrfTokenValidator</filter-name>
+    <filter-class>org.jepria.sso.ssoui.login.server.CsrfTokenValidator</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CsrfTokenValidator</filter-name>
+    <url-pattern>/Protected.jsp</url-pattern>
+  </filter-mapping>
+
   <welcome-file-list>
     <welcome-file>SsoUi.jsp</welcome-file>
   </welcome-file-list>

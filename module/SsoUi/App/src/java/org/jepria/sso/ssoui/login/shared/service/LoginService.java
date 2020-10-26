@@ -14,5 +14,5 @@ public interface LoginService extends JepDataService {
    * сессия истечет, и потребуется перезагрузка логин-страницы
    * (параметры при этом не сохранятся).
    */
-  void bindParamsToSession(Map<String, String> params);
+  void bindParamsToSession(String csrfToken, Map<String, String> params);
 }

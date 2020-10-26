@@ -53,4 +53,6 @@ public interface LoginModuleView extends PlainModuleView {
    * Выполняет запрос на аутентификацию.
    */
   void submit();
+
+  String getCsrfToken();
 }

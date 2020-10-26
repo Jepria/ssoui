@@ -228,4 +228,9 @@ public class LoginModuleViewImpl extends PlainModuleViewImpl implements LoginMod
   private native void submit(Element formElement) /*-{
     formElement.submit();
   }-*/;
+
+  @Override
+  public String getCsrfToken() {
+    return RootPanel.get("x_csrf_token_field").getElement().getAttribute("value");
+  }
 }
